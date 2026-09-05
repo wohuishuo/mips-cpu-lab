@@ -1,0 +1,7 @@
+[
+ {"name":"intro","duration":8,"image":"cover.png","text":"从一条指令，到真实电路。这是围绕课程资料实现的米普斯处理器实验。"},
+ {"name":"datapath","duration":12,"image":"datapath.png","text":"取指，译码，执行，访存，写回。每一级保留自己的指令和地址。前推、暂停、异常与缓存，一起保证程序的结果正确。"},
+ {"name":"live","duration":32,"video":"../build/hardware/fpga_live_recording.mp4","text":"现在看到的，是正在读取真实开发板串口的录屏。斐波那契结果为八十九，内存存储十二次，错误计数为零。串口命令依次关闭灯、点亮灯、恢复处理器控制，并触发蜂鸣器和处理器复位。复位之后，同一程序重新计算。图中的数码管和灯表示真实遥测数据，不是开发板照片。"},
+ {"name":"trace","duration":12,"image":"pipeline-trace.png","text":"这张图来自真实仿真轨迹。每个格子记录一个阶段的指令地址。存储器等待时，年轻阶段保持，写回阶段只排空一次，避免重复提交。"},
+ {"name":"cache","duration":14,"image":"cache-performance.png","text":"六组缓存联合测试得到相同的程序结果。等待越多，运行周期越长。这里比较的是等待模式，不把它冒充缓存加速比。代码、测试和证据可以分别复查。"}
+]

@@ -1,0 +1,38 @@
+{
+  "passes": [
+    {
+      "test": "lab1_owned",
+      "result": "PASS LAB1 checks=672 all16glyphs fourphases bytewrap debounce heldbutton reset"
+    },
+    {
+      "test": "lab1_original_overlay",
+      "result": "PASS LAB1 checks=672 all16glyphs fourphases bytewrap debounce heldbutton reset"
+    },
+    {
+      "test": "lab3_fibonacci_original",
+      "result": "PASS LAB3 fibonacci mode=0 stores=20 displays=1 last=17711 cycles=218"
+    },
+    {
+      "test": "lab3_fibonacci_fast_display",
+      "result": "PASS LAB3 fibonacci mode=1 stores=20 displays=20 last=17711 cycles=769"
+    },
+    {
+      "test": "lab3_adder_original",
+      "result": "PASS LAB3 adder mode=2 cases=1 cycles=4000276"
+    },
+    {
+      "test": "lab3_adder_boundaries",
+      "result": "PASS LAB3 adder mode=3 cases=36 cycles=14615"
+    }
+  ],
+  "sources_sha256": {
+    "lab1\\num_led\\num_led.srcs\\sources_1\\new\\num_led.v": "2f9099c754adbd2d0e9d275fbdd3ea5a06fc92441d1a63655d4755d9f81889f0",
+    "lab3\\single_cycle\\single_cycle.srcs\\sources_1\\new\\single_cycle.v": "94e72bf2bd22c0972a94611f6a932149d51b2ca07905b5b2d7d40728506219e3",
+    "lab3\\single_cycle\\single_cycle.srcs\\sources_1\\new\\confreg\\confreg.v": "2f70ccc3065a819f834aaba4639ee2b4b25698446d8211d966c7f05978e48fa3",
+    "lab3\\single_cycle\\single_cycle.srcs\\sources_1\\new\\ip\\inst_rom\\inst_rom.xci": "5c550b2379d05dd193a00cfd98ccbc0167199bea5914acd745974715a16eb1af",
+    "lab3\\single_cycle\\single_cycle.srcs\\sources_1\\new\\ip\\data_ram\\data_ram.xci": "5029436332295755df714d1a329538fac41dbf5f05e9aac8305c3f8d85e106c4",
+    "lab3\\soft\\fibonacci.coe": "514634c0c5cf2248213e5e0dc6d5315168085151a87879152272d08b466afdcb",
+    "lab3\\soft\\adder8bit.coe": "1e6d8c0d8ec409bbd4c2cb08f53dc2ba4ace708243c0da2ca8ace3b7e50a1c54"
+  },
+  "scope": "Simulation of original lab3 top with owned CPU and asynchronous distributed-memory models. Original Fibonacci computes all 20 RAM words/first display; original adder tests 255+255. Explicit accelerated overlays test all 20 display writes and 36 boundary input pairs. Lab1 owned implementation and local original skeleton with display/button repairs. No board claim."
+}

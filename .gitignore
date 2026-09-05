@@ -1,0 +1,15 @@
+build/
+.superpowers/
+__pycache__/
+*.pyc
+*.jou
+*.log
+*.wdb
+*.pb
+*.dcp
+*.bit
+*.ltx
+.Xil/
+media/raw/
+local-config.json
+*.zip

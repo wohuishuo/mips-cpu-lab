@@ -1,0 +1,134 @@
+{
+  "simulation_commit": "42f8ba7f32138bf2192f57dc23880d70d87c2ef6",
+  "generated_at_utc": "2026-09-05T14:26:52.487493+00:00",
+  "overall_status": "PASS",
+  "tests": [
+    {
+      "name": "single_cycle",
+      "status": "PASS",
+      "duration_seconds": 5.875,
+      "returncode": 0,
+      "markers": [
+        "PASS single_cycle checks=2113 fibonacci_words=12"
+      ],
+      "log_sha256": "e67a7a67a87cde8266b7d2ca905f691095e95562fc19f308c1628d6b002db46b"
+    },
+    {
+      "name": "cp0",
+      "status": "PASS",
+      "duration_seconds": 5.391,
+      "returncode": 0,
+      "markers": [
+        "PASS CP0 checks=25"
+      ],
+      "log_sha256": "45ecef3d82bef85d6093deb0c6a2b79a09fe396273c7906e1c0622ba7a97a47a"
+    },
+    {
+      "name": "peripherals",
+      "status": "PASS",
+      "duration_seconds": 13.25,
+      "returncode": 0,
+      "markers": [
+        "PASS: all peripheral tests passed"
+      ],
+      "log_sha256": "4fa3a746f20fd0b21c24826c97a6ef7c0a699c357d56fb2bb44f324c7606eea2"
+    },
+    {
+      "name": "cache",
+      "status": "PASS",
+      "duration_seconds": 33.187,
+      "returncode": 0,
+      "markers": [
+        "TB_CACHE_PASS SETS=16 WORDS_PER_LINE=4 cpu=166 mem_reads=232 mem_writes=56 hits=102 misses=51 writebacks=12",
+        "TB_CACHE_PASS SETS=4 WORDS_PER_LINE=2 cpu=158 mem_reads=84 mem_writes=32 hits=110 misses=35 writebacks=14",
+        "CACHE_TESTS_PASS variants=3 invalid_parameter_cases=4"
+      ],
+      "log_sha256": "c224b299fcdbe5b89522fba2e39f83572fc99b1e91cdc39b2747acd48feaa633"
+    },
+    {
+      "name": "pipeline",
+      "status": "PASS",
+      "duration_seconds": 5.578,
+      "returncode": 0,
+      "markers": [
+        "PASS pipeline independent traces, waits, 13 precise exception handlers, external/timer IRQ and active reset"
+      ],
+      "log_sha256": "e54a92db20a5c09100daa7f66f1b0c4699e1c9faad0c704b2bc9c230cee64798"
+    },
+    {
+      "name": "mars",
+      "status": "PASS",
+      "duration_seconds": 5.657,
+      "returncode": 0,
+      "markers": [
+        "PASS MARS Fibonacci: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]",
+        "PASS MARS_TO_RTL fibonacci_words=12 stores=12 cycles=150"
+      ],
+      "log_sha256": "dce7affc1016cff227b5c894990281c100675a1c623d0717aeef2c43cdf86d58"
+    },
+    {
+      "name": "soc",
+      "status": "PASS",
+      "duration_seconds": 5.703,
+      "returncode": 0,
+      "markers": [
+        "PASS BOARD_ROM words=25",
+        "PASS SOC fibonacci=12 uart_packet=40 gpio=3 restart=1"
+      ],
+      "log_sha256": "b5e478c1b416718cb3d661151669ba48592c00631719b89125ff24cd2b583e55"
+    },
+    {
+      "name": "cpu_cache",
+      "status": "PASS",
+      "duration_seconds": 11.0,
+      "returncode": 0,
+      "markers": [
+        "JOINT sets=16 words=4 mode=0 retirements=391 cycles=1155 stalls=740 hits=103 misses=56 writebacks=24 MMIO_stores=38 back_reads=224 back_writes=96 adjacent=264",
+        "JOINT sets=16 words=4 mode=1 retirements=391 cycles=2285 stalls=1870 hits=103 misses=56 writebacks=24 MMIO_stores=38 back_reads=224 back_writes=96 adjacent=74",
+        "JOINT sets=16 words=4 mode=2 retirements=391 cycles=4894 stalls=4479 hits=103 misses=56 writebacks=24 MMIO_stores=38 back_reads=224 back_writes=96 adjacent=0",
+        "PASS cpu-cache SETS=16 WORDS=4",
+        "JOINT sets=4 words=2 mode=0 retirements=391 cycles=1079 stalls=664 hits=66 misses=93 writebacks=29 MMIO_stores=38 back_reads=186 back_writes=58 adjacent=151",
+        "JOINT sets=4 words=2 mode=1 retirements=391 cycles=2097 stalls=1682 hits=66 misses=93 writebacks=29 MMIO_stores=38 back_reads=186 back_writes=58 adjacent=41",
+        "JOINT sets=4 words=2 mode=2 retirements=391 cycles=3919 stalls=3504 hits=66 misses=93 writebacks=29 MMIO_stores=38 back_reads=186 back_writes=58 adjacent=0",
+        "PASS cpu-cache SETS=4 WORDS=2"
+      ],
+      "log_sha256": "56a467785dcc4e80a57b26fae3ae8c57f2e27c2b3d555b3118e7d19ed56aac91"
+    },
+    {
+      "name": "upstream_sc",
+      "status": "PASS",
+      "duration_seconds": 5.187,
+      "returncode": 0,
+      "markers": [
+        "PASS UPSTREAM_SC rows=28970 cycles=42919 display=13000013 led=0000000f"
+      ],
+      "log_sha256": "1d9d47f177f109119d25b40ec9d95c40dbb9af3184d14bb325ab5e3c3cb7d8c2"
+    },
+    {
+      "name": "teach_soc",
+      "status": "PASS",
+      "duration_seconds": 7.953,
+      "returncode": 0,
+      "markers": [
+        "PASS TEACH_SOC rows=28970 cycles=49959 stores=420 display=13000013 led=0f enabled_points=19 reset_cancel=1 checked_tail=32"
+      ],
+      "log_sha256": "8b2261e405cd1166209a3169a08c5130723fb5261d6e5be9ffce1645ce31dcca"
+    },
+    {
+      "name": "course_basics",
+      "status": "PASS",
+      "duration_seconds": 42.032,
+      "returncode": 0,
+      "markers": [
+        "PASS LAB1 checks=672 all16glyphs fourphases bytewrap debounce heldbutton reset",
+        "PASS LAB3 fibonacci mode=0 stores=20 displays=1 last=17711 cycles=218",
+        "PASS LAB3 fibonacci mode=1 stores=20 displays=20 last=17711 cycles=769",
+        "PASS LAB3 adder mode=2 cases=1 cycles=4000276",
+        "PASS LAB3 adder mode=3 cases=36 cycles=14615",
+        "PASS COURSE_BASICS profiles=6"
+      ],
+      "log_sha256": "2210eaaaf534b289532b0e9a2ac97ae8a64b3d5c822ba963fc819212ae69b1e4"
+    }
+  ],
+  "exported_at_utc": "2026-09-05T14:31:57.652562+00:00"
+}

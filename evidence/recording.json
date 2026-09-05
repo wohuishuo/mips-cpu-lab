@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "duration_seconds": 32.0,
+  "packets": 298,
+  "commands": [
+    "a",
+    "0",
+    "1",
+    "a",
+    "b",
+    "r",
+    "a"
+  ],
+  "source": "actual window capture of physical FPGA UART telemetry",
+  "audio": "none; beep command only, no microphone audio proof"
+}

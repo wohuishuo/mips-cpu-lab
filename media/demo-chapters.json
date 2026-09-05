@@ -1,0 +1,42 @@
+[
+  {
+    "name": "intro",
+    "start": 0,
+    "end": 8,
+    "source": "original teaching figure",
+    "narration_source": "local Microsoft Huihui SAPI",
+    "narration_speed": 1.0104731670445957
+  },
+  {
+    "name": "datapath",
+    "start": 8,
+    "end": 20,
+    "source": "original teaching figure",
+    "narration_source": "local Microsoft Huihui SAPI",
+    "narration_speed": 1.2350113378684808
+  },
+  {
+    "name": "live",
+    "start": 20,
+    "end": 52,
+    "source": "actual FPGA UART window capture",
+    "narration_source": "local Microsoft Huihui SAPI",
+    "narration_speed": 1
+  },
+  {
+    "name": "trace",
+    "start": 52,
+    "end": 64,
+    "source": "original teaching figure",
+    "narration_source": "local Microsoft Huihui SAPI",
+    "narration_speed": 1.22471063787834
+  },
+  {
+    "name": "cache",
+    "start": 64,
+    "end": 78,
+    "source": "original teaching figure",
+    "narration_source": "local Microsoft Huihui SAPI",
+    "narration_speed": 1.2354144620811287
+  }
+]

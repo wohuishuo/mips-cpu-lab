@@ -1,0 +1,73 @@
+{
+  "pass": true,
+  "transport": "physical serial 115200 8N1",
+  "records": [
+    {
+      "status": 1,
+      "pc": 4194380,
+      "fibonacci": 89,
+      "cycles": 1882534784,
+      "stores": 12,
+      "display": 8454233,
+      "gpio": 33240,
+      "retired": 1882534784,
+      "errors": 0,
+      "step": "automatic"
+    },
+    {
+      "status": 1,
+      "pc": 4194388,
+      "fibonacci": 89,
+      "cycles": 1882818458,
+      "stores": 12,
+      "display": 8454233,
+      "gpio": 33024,
+      "retired": 1882818458,
+      "errors": 0,
+      "step": "led_off"
+    },
+    {
+      "status": 1,
+      "pc": 4194380,
+      "fibonacci": 89,
+      "cycles": 1883135240,
+      "stores": 12,
+      "display": 8454233,
+      "gpio": 33279,
+      "retired": 1883135240,
+      "errors": 0,
+      "step": "led_on"
+    },
+    {
+      "status": 1,
+      "pc": 4194376,
+      "fibonacci": 89,
+      "cycles": 1883455143,
+      "stores": 12,
+      "display": 8454233,
+      "gpio": 33240,
+      "retired": 1883455143,
+      "errors": 0,
+      "step": "automatic_restored"
+    },
+    {
+      "status": 1,
+      "pc": 4194396,
+      "fibonacci": 89,
+      "cycles": 505204,
+      "stores": 12,
+      "display": 8454233,
+      "gpio": 33240,
+      "retired": 505204,
+      "errors": 0,
+      "step": "cpu_restarted"
+    }
+  ],
+  "beep_command_sent": true,
+  "restart_check": {
+    "host_age_seconds": 0.06299999999828287,
+    "reported_cycles": 505204,
+    "max_post_reset_cycles": 729999
+  },
+  "limits": "GPIO telemetry proves driven signals; physical LED/display appearance and sound need separate capture."
+}

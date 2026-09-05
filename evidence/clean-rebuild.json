@@ -1,0 +1,8 @@
+{
+  "source_commit": "21bc55f1d530eddc761fb3e6c6666a276bb5d1b5",
+  "status": "PASS",
+  "method": "separate clean Git clone; fresh MARS ROM; Vivado 2019.2 synthesis, placement, routing, bitstream",
+  "result": "PASS BOARD_BUILD part=xc7a35tcsg324-1 cpu_mhz=10 setup_slack=8.582 hold_slack=0.011 bitstream_sha256=bd2da6b58de13a46f6245554ce882992dd6090f9979166099098399b46f42678",
+  "programmed": false,
+  "note": "Original programmed image is identified separately in board-build_result.txt; same RTL, distinct build metadata."
+}

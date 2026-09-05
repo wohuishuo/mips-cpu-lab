@@ -1,0 +1,20 @@
+name: Portable Python checks (no RTL simulation)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  static-and-fixture-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Python sources
+        run: python -m compileall -q scripts tests
+      - name: List the default regression manifest
+        run: python scripts/run_all.py --list
+      - name: Exercise aggregate logging and timeout behavior
+        run: python -m unittest tests/test_run_all.py -v

@@ -1,0 +1,1 @@
+PASS BOARD_BUILD part=xc7a35tcsg324-1 cpu_mhz=10 setup_slack=8.582 hold_slack=0.011 bitstream_sha256=219404a5d75730b3566fe3fafe8b977c6bf98b564e11b68344a59a2842aef0e7
