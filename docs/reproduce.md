@@ -123,3 +123,16 @@ GitHub Actions run is claimed. The same checks passed locally.
 GitHub-hosted runners do not include Vivado 2019.2, so even an enabled template
 would not establish an RTL simulation pass. Run the main command on a configured
 Windows/Vivado host to reproduce the RTL evidence. See [CI notes](ci/README.md).
+
+## Printable report
+
+`docs/report.pdf` is generated from the original Chinese `docs/report.md` and
+the project's teaching figures. On Windows with Microsoft YaHei and Consolas:
+
+```powershell
+python -m pip install reportlab
+python scripts/render_report.py
+```
+
+Its layout has been rendered and visually checked. The Markdown remains the
+editable source; regenerate the PDF when measured results change.

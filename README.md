@@ -10,7 +10,8 @@
 本项目不是完整 MIPS32 实现，也不把历史项目的 README 当作 2026 验收标准。
 
 [▶ 观看 78 秒中文演示](media/mips-cpu-demo.mp4) ·
-[实验报告](docs/report.md) · [课程讲解](docs/teaching.md) ·
+[下载演示与 bitstream](https://github.com/wohuishuo/mips-cpu-lab/releases/tag/v0.1.0) ·
+[实验报告](docs/report.md) / [PDF](docs/report.pdf) · [课程讲解](docs/teaching.md) ·
 [12 项能力与证据](docs/capabilities.md) · [完整复现](docs/reproduce.md)
 
 ## 已验证的结果
