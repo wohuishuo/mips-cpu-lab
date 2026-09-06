@@ -1,0 +1,6 @@
+* text=auto
+*.pdf binary
+*.png binary
+*.mp4 binary
+*.bit binary
+*.wdb binary
