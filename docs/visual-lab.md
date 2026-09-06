@@ -1,10 +1,33 @@
-# CPU 工坊：从一位到一台 CPU
+# 项目讲解与 CPU 工坊
 
-这是可以执行程序、观察状态和拼接电路的浏览器实验台。代码在 [lab/](lab/)，本地入口为 `http://127.0.0.1:4173/lab/`。
+入口是 `http://127.0.0.1:4173/lab/`。页面以一节实验课的顺序呈现：先提出问题，
+操作中间的图，观察状态，再看右侧高亮的真实源码。下方列出步骤与已经验证的结果。
+点击「跟着演示走」可播放板上同一 SoC 的关键执行步骤，也可以暂停、回退、拖动周期。
 
-![CPU 软件实验台的流水线、内存与全加器](../media/visual-lab-cpu.png)
+![板上 CPU、RAM 与对应代码](../media/project-exhibit.png)
 
-![可拼接的数字电路工坊](../media/visual-lab-circuit.png)
+## 八个讲解章节
+
+| 章节 | 直接操作 | 数据来源 |
+|---|---|---|
+| 板子上的 CPU | 单步指令、看寄存器和 RAM、查看显示输出 | 与下板相同的单周期 SoC，新运行的 160 拍 XSim 记录；实板串口另页签 |
+| lab1 开关与数码管 | 拨开关、捕获一个字节、改变扫描相位 | 浏览器原理模型，旁边对照实际适配器与扫描代码 |
+| lab3 单周期与程序 | 计算 20 项 Fibonacci、输入两个 8 位数相加 | 算法交互与课程 RTL 验证记录；课程序列从 2、3 开始，板上从 0、1 开始 |
+| 五级流水线 | 拖动周期、切换三种存储等待模式 | 3,801 行真实 RTL 阶段 CSV |
+| lab5 指令对照验证 | 注入一个错误，定位第一处写回差异 | 三行教学例子；实际 28,970 行、19 个启用点的回归证据另列 |
+| 异常与返回 | 跟随异常进入、保存 EPC、处理、eret；切换延迟槽 | CP0 原理演示与实际 RTL 源码，真实回归单独标明 |
+| lab7 两路 Cache | 读、写、访问同组地址，观察脏行写回 | 浏览器功能模型；两种配置 × 三种等待模式的 RTL 证据另列 |
+| 实板串口记录 | 回放关灯、开灯、恢复自动、重启记录 | 已保存的实际 UART 结果，不向板卡发送命令 |
+
+当前材料实际提供 lab1 / lab3 / lab5 / lab7。单周期 SoC 有下板记录；流水线、
+CP0 和 Cache 按仿真验证范围展示。数码管和 LED 是逻辑示意，不是板卡照片。
+代码包保留 37 个仓库源文件的内容、行号和摘要，不分发教师 ROM、golden 或课件。
+
+## 自己写程序与拼电路
+
+目录底部或页脚的「写程序 / 拼电路」进入 `lab/playground.html`，保留原来的
+五级软件 CPU、汇编编辑器、寄存器/内存、全加器和可拼接门电路。它与项目讲解使用统一的浅色界面。
+以下五项能力与操作路线均指这个浏览器实验台；CUSTOM 没有加入 FPGA RTL。
 
 ## 启动与软件
 
@@ -54,6 +77,7 @@ ADD/ADDI/SUB 溢出、非法地址/对齐、延迟槽内再次控制转移会停
 
 ```powershell
 npm run test:visual
+npm run test:exhibit
 python -m unittest tests/test_run_all.py -v
 ```
 
@@ -63,6 +87,7 @@ python -m unittest tests/test_run_all.py -v
 npm install --no-save playwright
 npx playwright install chromium
 npm run test:browser
+npm run test:exhibit:browser
 ```
 
 已有 Edge 可设置 `$env:PLAYWRIGHT_CHANNEL = 'msedge'`。测试截图与结果写入被忽略的 `build/visual-lab/`；`PLAYWRIGHT_MODULE` 可指向已有 Playwright 包，`LAB_URL` 可指定其他服务器。
@@ -70,3 +95,14 @@ npm run test:browser
 入口职责：`app.js` 管理交互与视图，`engine/cpu.js` 执行指令，`engine/circuit.js` 计算网表，`circuit-editor.js` 管理拼接。无需构建或打包即可修改并刷新。
 
 [本次验证项目与范围](visual-lab-verification.md)
+
+## 更新讲解数据
+
+`npm run build:exhibit` 从仓库源码和 evidence 重新生成 `lab/data/project.json`，
+统一文本换行，保留来源摘要与全部阶段/串口记录。修改对应源文件后应重新生成并运行测试。
+`python scripts/export_exhibit_trace.py` 使用 MARS 和 Vivado / XSim 2019.2 编译并运行同一 SoC，
+独立检查全部寄存器与 RAM 转移，再导出 `lab/data/board-trace.json`。设置 `MARS_JAR`
+指向已有 MARS 4.5；该重建需要 FPGA 工具链，打开网站本身不需要。
+
+讲解页截图和检查结果输出到 `build/exhibit/`。入口 `exhibit.js` 管理章节和代码跟随，
+`exhibit-models.js` 计算显示与 Cache 原理交互；真实执行轨迹直接读记录，不由网页重新编造。

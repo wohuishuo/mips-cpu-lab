@@ -35,9 +35,16 @@ GPIO 区域取第 11 秒的 `716:336:1142:442`（FFmpeg crop 格式）。
 
 ## 浏览器 CPU 工坊
 
-`visual-lab-cpu.png` 与 `visual-lab-circuit.png` 来自真实浏览器执行本仓库 `docs/lab/` 的截图。
+`visual-lab-cpu.png` 与 `visual-lab-circuit.png` 来自真实浏览器执行本仓库 `docs/lab/playground.html` 的截图。
 前者为默认程序第 7 拍，包含 load-use 停顿、已写入的 12 和逐位全加器；后者为可拼接电路页面。
 它们是浏览器软件模型，来源与上面的 FPGA UART 录屏分别记录。
 
 运行本地服务后执行 `npm run test:browser` 可重新生成 `build/visual-lab/` 中的截图；
 本次发布分别复制 `cpu-full.png` 与 `circuit-desktop.png`，没有拼接或改写画面中的结果值。
+
+## 项目讲解页
+
+`project-exhibit.png` 来自 `npm run test:exhibit:browser` 生成的 `build/exhibit/board.png`，
+是 160 拍真实 SoC RTL 记录回放到末尾的页面原图。对应代码、12 个 RAM 值和输出驱动值
+均由页面从源码包与轨迹读取。它不是 FPGA 照片，也不是实际硬件逐指令抓取。
+CPU 工坊的两张截图已同步为本次浅色界面，没有修改画面中的结果数据。

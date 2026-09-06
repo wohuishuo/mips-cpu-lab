@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHANNEL?{channel:process.env.PLAYWRIGHT_CHANNEL}:{})});
+const page=await browser.newPage({viewport:{width:1500,height:1100}}),errors=[],checks=[];
+page.on('pageerror',error=>errors.push(error.message));
+const output=new URL('../../build/exhibit/',import.meta.url);await mkdir(output,{recursive:true});
+const pass=name=>{checks.push(name);console.log('PASS '+name);};
+const visit=async id=>{await page.locator(`#chapters a[href="#${id}"]`).click();await page.waitForFunction(id=>document.querySelector('#chapters a.active')?.getAttribute('href')==='#'+id,id);};
+const screenshot=async name=>page.screenshot({path:fileURLToPath(new URL(name,output)),fullPage:true});
+try{
+  await page.goto(process.env.LAB_URL||'http://127.0.0.1:4173/lab/');await page.locator('#chapters a').first().waitFor();
+  assert.equal(await page.locator('#chapters a').count(),8);assert.equal(await page.locator('#code .highlight').count(),1);
+  assert.match(await page.locator('#code .highlight').textContent(),/lui/);
+  await page.locator('[data-action="play"]').click();await page.waitForFunction(()=>Number(document.querySelector('[data-control="cursor"]').value)>2);await page.locator('[data-action="play"]').click();assert.equal(await page.locator('[data-action="play"]').textContent(),'播放');
+  const paused=await page.locator('[data-control="cursor"]').inputValue();await page.waitForTimeout(350);assert.equal(await page.locator('[data-control="cursor"]').inputValue(),paused);
+  await page.locator('[data-action="end"]').click();assert.equal(await page.locator('[data-ram="11"] b').textContent(),'89');assert.equal(await page.locator('[data-ram] b').count(),12);assert.match(await page.locator('#demo').textContent(),/00810059/);assert.match(await page.locator('#demo').textContent(),/D8/);pass('同板上 SoC 的真实 RTL 回放：12 项、89、显示与 LED');
+  await screenshot('board.png');
+  await page.locator('[data-boardmode="telemetry"]').click();assert.match(await page.locator('#demo-kind').textContent(),/实板串口/);assert.match(await page.locator('#demo .cpu-facts').textContent(),/89/);pass('真实串口记录独立展示');
+  await visit('lab1');await page.locator('[data-action="capture"]').click();assert.match(await page.locator('#demo .cpu-facts').textContent(),/00000081/);await page.locator('[data-phase="3"]').click();assert.match(await page.locator('#demo .cpu-facts').textContent(),/88/);pass('lab1 输入写入与扫描相位');await screenshot('lab1.png');
+  await visit('lab3');await page.locator('[data-action="fib-all"]').click();assert.equal(await page.locator('[data-ram="19"] b').textContent(),'17711');assert.match(await page.locator('#code .highlight').allTextContents().then(x=>x.join(' ')),/golden\[0\].*=2/);await page.locator('[data-lab3="add"]').click();await page.locator('#lab3-a').fill('127');await page.locator('#lab3-b').fill('128');await page.locator('[data-action="lab3-add"]').click();assert.equal(await page.locator('#lab3-sum').textContent(),'255');assert.match(await page.locator('#code .highlight').allTextContents().then(x=>x.join(' ')),/sum/);pass('lab3 两种程序、20 项 Fibonacci 与加法输入');
+  await visit('pipeline');await page.locator('[data-control="pipe-mode"]').selectOption('2');await page.locator('[data-action="next"]').click();assert.equal(await page.locator('.pipeline-stage').count(),5);assert.match(await page.locator('#demo-kind').textContent(),/真实 RTL/);pass('真实五级阶段 CSV 与等待模式');
+  await visit('lab5');await page.locator('[data-action="inject"]').click();assert.match(await page.locator('.status-stamp').textContent(),/第 2 条/);assert.match(await page.locator('#evidence').textContent(),/19/);pass('lab5 首个差异定位与真实覆盖范围');
+  await visit('exceptions');await page.locator('[data-control="delay-slot"]').check();await page.locator('[data-action="next"]').click();assert.match(await page.locator('#demo .cpu-facts').textContent(),/BFC0001C/);pass('异常延迟槽 EPC 与 BD');
+  await visit('lab7');await page.locator('[data-action="cache-read"]').click();await page.locator('[data-action="cache-write"]').click();await page.locator('[data-cache="256"]').click();await page.locator('[data-cache="512"]').click();assert.match(await page.locator('#explanation').textContent(),/替换脏行/);assert.match(await page.locator('#demo .cpu-facts').textContent(),/脏行写回1/);pass('lab7 命中、冲突与真实模型写回');await screenshot('lab7.png');
+  await visit('uart');await page.locator('[data-action="next"]').click();assert.match(await page.locator('#demo').textContent(),/关灯/);assert.match(await page.locator('.led-strip').getAttribute('aria-label'),/00/);pass('实板 off/on/auto 记录及协议解释');
+  for(const id of ['board','lab1','lab3','pipeline','lab5','exceptions','lab7','uart']){await visit(id);await page.locator('[data-lesson="1"]').click();assert.ok(await page.locator('#code .highlight').count()>0);assert.ok((await page.locator('#source-link').getAttribute('href')).includes('#L'));}pass('全部 8 章都有真实源码行和可达步骤');
+  await page.setViewportSize({width:390,height:844});await visit('board');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await screenshot('mobile.png');pass('窄屏无整页横向溢出');
+  assert.deepEqual(errors,[]);await writeFile(new URL('results.json',output),JSON.stringify({checks,errors,time:new Date().toISOString()},null,2));
+}finally{await browser.close();}

@@ -8,7 +8,7 @@ const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CH
 const page=await browser.newPage({viewport:{width:1500,height:1100},acceptDownloads:true});
 const errors=[];page.on('pageerror',error=>errors.push(error.message));
 try {
-  await page.goto(process.env.LAB_URL||'http://127.0.0.1:4173/lab/');
+  await page.goto(new URL('playground.html',process.env.LAB_URL||'http://127.0.0.1:4173/lab/').href);
   await page.locator('[data-tab="circuit"]').click();
   const editor=page.locator('.circuit-editor'),preset=editor.locator('[data-control="preset"]');
   await preset.selectOption('nand');

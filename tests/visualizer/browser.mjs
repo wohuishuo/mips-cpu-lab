@@ -8,7 +8,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const url=process.env.LAB_URL||'http://127.0.0.1:4173/lab/';
+const url=new URL('playground.html',process.env.LAB_URL||'http://127.0.0.1:4173/lab/').href;
 const output=new URL('../../build/visual-lab/',import.meta.url);
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHANNEL?{channel:process.env.PLAYWRIGHT_CHANNEL}:{})});

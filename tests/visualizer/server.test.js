@@ -12,7 +12,7 @@ test('local launcher serves entry and modules while keeping requests inside docs
       child.once('exit',code=>{clearTimeout(timeout);reject(new Error(`Server exited ${code}`));});
       child.stdout.on('data',data=>{const match=String(data).match(/http:\/\/127\.0\.0\.1:\d+/);if(match){clearTimeout(timeout);resolve(match[0]);}});
     });
-    const entry=await fetch(url+'/');assert.equal(entry.status,200);assert.match(await entry.text(),/CPU 工坊/);
+    const entry=await fetch(url+'/');assert.equal(entry.status,200);assert.match(await entry.text(),/MIPS 实验记录/);
     const module=await fetch(url+'/lab/engine/cpu.js');assert.equal(module.status,200);assert.match(module.headers.get('content-type'),/javascript/);
     const escape=await fetch(url+'/%2e%2e%2fREADME.md');assert.equal(escape.status,403);
     const missing=await fetch(url+'/lab/does-not-exist.js');assert.equal(missing.status,404);

@@ -1,1 +1,13 @@
-{"name":"mips-cpu-visual-lab","private":true,"type":"module","scripts":{"test:visual":"node --test tests/visualizer/*.test.js","test:browser":"node tests/visualizer/browser.mjs && node tests/visualizer/circuit-browser.mjs","lab":"node tools/serve-lab.mjs"}}
+{
+  "name": "mips-cpu-visual-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:visual": "node --test tests/visualizer/*.test.js",
+    "test:browser": "node tests/visualizer/browser.mjs && node tests/visualizer/circuit-browser.mjs",
+    "lab": "node tools/serve-lab.mjs",
+    "test:exhibit": "node --test tests/exhibit/*.test.js",
+    "test:exhibit:browser": "node tests/exhibit/browser.mjs",
+    "build:exhibit": "node tools/build-exhibit-data.mjs"
+  }
+}
