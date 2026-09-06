@@ -12,20 +12,21 @@
 | C05 | CPU 与板上 I/O；Vivado/UART | CPU 读取实际开关 0x81，显示寄存器 0x00810059、LED 驱动值 0xD8；仿真和实板遥测一致 | 没有物理拨动开关的视频；LED 方向与显示外观待观察 |
 | C06 | UART 控灯与 IP；IP Packager/pyserial | 8N1 独立采样、坏停止位、复位；40 字节 SoC 协议；实板 off/on/auto；封装 IP 在新项目调用成功 | 图形表示驱动值，未拍摄实物 LED |
 | C07 | 五级流水线；XSim/Python 参考 | 三种等待模式各 494 次退休；前推、load-use、延迟槽、存储恰好一次；真实阶段 CSV | 流水线尚未生成板级镜像 |
-| C08 | 可重复功能回归；XSim/课程原件 | 原 teach_soc/bridge/confreg 不改动，接入自写流水线；28,970 trace 行、420 存储；错误/截断/额外 trace 均失败 | 使用本地预编译 19 点镜像；未声称新 GNU 编译或全部 89 点 |
+| C08 | 可重复功能回归；XSim/GNU/课程原件 | 原 teach_soc 接入流水线；28,970 trace 行、420 存储；另实际 GNU 重编译 46,951 字，与原 COE 一致，再跑原 golden 通过 | 当前启用 19 点；明确归档顺序以保持原函数地址，不声称全部 89 点 |
 | C09 | 异常进入与返回；XSim | CP0 25 检查；流水线 13 个处理流程；BD/EPC、ERET、对齐、RI、溢出、syscall/break、外部/定时中断 | 文档声明的教学 CP0 子集 |
 | C10 | 带 Cache 的 CPU；XSim/Python | 两路写回；3 个合法参数单元配置、4 个非法参数拒绝；6 组 CPU 联合回归、全后备 RAM 对照 | MMIO 绕过；无 flush 命令，测试以强制脏替换验证持久性 |
 | C11 | 蜂鸣器扩展；Vivado/UART | 频率/禁用/复位断言、独立综合、SoC 串口触发和实际板卡命令 | 尚无实际声音录音；VGA 未选用 |
-| C12 | 复现、评估、讲解、视频与公开代码 | 干净克隆 11 套回归；独立审查；板卡重建；资源/时序/CPI；中文报告、78 秒影片和裁图 | 本页保留物理外观/声音及 GNU 重编译的未验证范围 |
+| C12 | 复现、评估、讲解、视频与公开代码 | 干净克隆 11 套回归；GNU 原程序重建；板卡重建；独立审查；资源/时序/CPI；中文 PDF、78 秒影片和裁图 | 物理外观/声音未观察；GitHub CI 仅提供未启用模板 |
 
 这 12 项均已有实现与自动验证入口。C01/C05/C06/C11 的光学或声学观察没有被
-串口遥测替代；C08 的结果限定为确实执行的本地镜像。不能据此写“所有学校验收
+串口遥测替代；C08 的结果限定为确实编译和执行的 19 点配置。不能据此写“所有学校验收
 要求全部通过”。
 
 ## 证据入口
 
 - [机器回归汇总](../evidence/results.json)：实际测试提交、11 项状态、PASS 标记、日志哈希。
 - [课程基础结果](../evidence/course_basics.json)：六个配置和本地输入 SHA-256。
+- [GNU 源码重建](gnu-rebuild.md)：现代工具链兼容调整、原布局依据和新镜像验证。
 - [实板测试](../evidence/board.json) / [录屏](../evidence/recording.json) / [原始遥测](../evidence/live-telemetry.jsonl)。
 - [FPGA 时序](../evidence/board-timing.rpt)、[资源](../evidence/board-utilization.rpt)、[DRC](../evidence/board-drc.rpt)。
 - [课程基础说明](course-basics.md)、[teach_soc 适配](teach-soc.md)、[CPU/Cache 对照](cpu-cache.md)。

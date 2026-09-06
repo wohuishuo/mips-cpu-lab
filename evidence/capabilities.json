@@ -1,0 +1,77 @@
+{
+  "scope": "Twelve implemented capabilities with actual tests and explicit observation limits; not a school grading certificate.",
+  "capabilities": [
+    {
+      "id": "C01",
+      "capability_and_tools": "工程到数码管；Vivado/XSim、EES-338",
+      "implemented_tested_evidence": "lab1 自写与原框架修复副本各 672 检查；新 XDC；SoC 综合、布线、下载；显示值串口读回",
+      "limits": "原 lab1 bitstream 未单独下板；实际数字外观待观察"
+    },
+    {
+      "id": "C02",
+      "capability_and_tools": "汇编到机器码；Java/MARS",
+      "implemented_tested_evidence": "实际汇编并执行 Fibonacci；同 ROM 进入 RTL；完整存储地址和 12 个值对照",
+      "limits": "MARS 延迟槽必须开启"
+    },
+    {
+      "id": "C03",
+      "capability_and_tools": "单周期算术执行；XSim",
+      "implemented_tested_evidence": "44 条普通指令、2,113 检查；非法/不对齐无错误副作用",
+      "limits": "单周期 ADD/ADDI/SUB 环绕，不提供精确异常"
+    },
+    {
+      "id": "C04",
+      "capability_and_tools": "完整单周期程序；MARS/XSim",
+      "implemented_tested_evidence": "原 lab3 顶层、confreg、ROM/RAM 接口；20 个 Fibonacci RAM 值；加法 255+255 及 36 组边界",
+      "limits": "全部显示序列和多组加法采用明确标注的等待加速副本"
+    },
+    {
+      "id": "C05",
+      "capability_and_tools": "CPU 与板上 I/O；Vivado/UART",
+      "implemented_tested_evidence": "CPU 读取实际开关 0x81，显示寄存器 0x00810059、LED 驱动值 0xD8；仿真和实板遥测一致",
+      "limits": "没有物理拨动开关的视频；LED 方向与显示外观待观察"
+    },
+    {
+      "id": "C06",
+      "capability_and_tools": "UART 控灯与 IP；IP Packager/pyserial",
+      "implemented_tested_evidence": "8N1 独立采样、坏停止位、复位；40 字节 SoC 协议；实板 off/on/auto；封装 IP 在新项目调用成功",
+      "limits": "图形表示驱动值，未拍摄实物 LED"
+    },
+    {
+      "id": "C07",
+      "capability_and_tools": "五级流水线；XSim/Python 参考",
+      "implemented_tested_evidence": "三种等待模式各 494 次退休；前推、load-use、延迟槽、存储恰好一次；真实阶段 CSV",
+      "limits": "流水线尚未生成板级镜像"
+    },
+    {
+      "id": "C08",
+      "capability_and_tools": "可重复功能回归；XSim/GNU/课程原件",
+      "implemented_tested_evidence": "原 teach_soc 接入流水线；28,970 trace 行、420 存储；另实际 GNU 重编译 46,951 字，与原 COE 一致，再跑原 golden 通过",
+      "limits": "当前启用 19 点；明确归档顺序以保持原函数地址，不声称全部 89 点"
+    },
+    {
+      "id": "C09",
+      "capability_and_tools": "异常进入与返回；XSim",
+      "implemented_tested_evidence": "CP0 25 检查；流水线 13 个处理流程；BD/EPC、ERET、对齐、RI、溢出、syscall/break、外部/定时中断",
+      "limits": "文档声明的教学 CP0 子集"
+    },
+    {
+      "id": "C10",
+      "capability_and_tools": "带 Cache 的 CPU；XSim/Python",
+      "implemented_tested_evidence": "两路写回；3 个合法参数单元配置、4 个非法参数拒绝；6 组 CPU 联合回归、全后备 RAM 对照",
+      "limits": "MMIO 绕过；无 flush 命令，测试以强制脏替换验证持久性"
+    },
+    {
+      "id": "C11",
+      "capability_and_tools": "蜂鸣器扩展；Vivado/UART",
+      "implemented_tested_evidence": "频率/禁用/复位断言、独立综合、SoC 串口触发和实际板卡命令",
+      "limits": "尚无实际声音录音；VGA 未选用"
+    },
+    {
+      "id": "C12",
+      "capability_and_tools": "复现、评估、讲解、视频与公开代码",
+      "implemented_tested_evidence": "干净克隆 11 套回归；GNU 原程序重建；板卡重建；独立审查；资源/时序/CPI；中文 PDF、78 秒影片和裁图",
+      "limits": "物理外观/声音未观察；GitHub CI 仅提供未启用模板"
+    }
+  ]
+}

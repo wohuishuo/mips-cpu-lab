@@ -1,0 +1,23 @@
+{
+  "status": "PASS GNU_REBUILD",
+  "enabled_points": 19,
+  "outputs_sha256": {
+    "axi_ram.mif": "63250e6ce6531ae4d591d3fd2d19d9ca9f42969085288eee538ebbdf0943494c",
+    "data_ram.coe": "5fafeed8745456b72db7022bb9486433d32ff08f067e299f30b68ac272c957f4",
+    "data_ram.mif": "e10bb09ae00c50ff2bad723ae9cb7cc6b585b61f6ba402ff9888db4182418161",
+    "inst_ram.coe": "b0aefd6757000aa8962a2f6b62f2af5117d3cecbb34111b5a6a588bff55d81ff",
+    "inst_ram.mif": "63250e6ce6531ae4d591d3fd2d19d9ca9f42969085288eee538ebbdf0943494c",
+    "main.bin": "68d6ff74efcf36dde79f12aea59d1cbf784204c0eb592f7c5dca0d70db862feb",
+    "main.data": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+    "main.elf": "142fdf9e9f862b4ac1eca848f84a4e88f6736845d4be2826d4b0d099a081df10",
+    "test.s": "e4f067dddfe33949e54aea7370a7964c8dba22917ffb0e27ac1f54acccb16b9f"
+  },
+  "supplied_rom_sha256": "c9dcea20a6dd95fdd0c3d7f28ed6bebbcfcc86db9ab8d70ed46257a136c934b9",
+  "rom_comparison": {
+    "supplied_words": 46951,
+    "rebuilt_words": 46951,
+    "identical_words": false,
+    "differing_common_words": 44854
+  },
+  "scope": "Successful GNU build with default member order; different function addresses, not tested against old-PC golden."
+}

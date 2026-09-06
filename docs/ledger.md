@@ -32,8 +32,10 @@ intermediate implementation notes.
 
 - The programmed design is a single-cycle SoC. Pipeline/cache/teach_soc evidence
   is simulation evidence.
-- Supplied lab5 ROM/golden trace enables 19 points. There is no fresh GNU rebuild
-  or claim that all 89 points pass.
+- Supplied lab5 ROM/golden trace enables 19 points. A subsequent actual GNU
+  rebuild reproduced all46,951 ROM words and passed the unchanged golden trace.
+  The default archive-order difference and compatibility adjustments are retained
+  in gnu-rebuild.md. There is no claim that all89 points pass.
 - Physical GPIO telemetry is preserved, but visible digit appearance, LED
   orientation and real buzzer sound have not been captured optically/acoustically.
 - Teacher PDFs, textbook scans, historical XPR/XDC and unlicensed course sources

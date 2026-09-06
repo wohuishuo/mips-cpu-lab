@@ -19,8 +19,8 @@ INK = colors.HexColor('#102236')
 MUTED = colors.HexColor('#536a7e')
 TEAL = colors.HexColor('#087f8c')
 WIDTH = A4[0]-88
-base = ParagraphStyle('body', fontName='Chinese', fontSize=10.2, leading=16.8,
-                      wordWrap='CJK', textColor=INK, spaceAfter=9, alignment=TA_LEFT,
+base = ParagraphStyle('body', fontName='Chinese', fontSize=10.2, leading=15.6,
+                      wordWrap='CJK', textColor=INK, spaceAfter=8, alignment=TA_LEFT,
                       allowWidows=0, allowOrphans=0)
 styles = {
     'body': base,

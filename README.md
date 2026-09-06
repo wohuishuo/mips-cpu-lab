@@ -10,7 +10,7 @@
 本项目不是完整 MIPS32 实现，也不把历史项目的 README 当作 2026 验收标准。
 
 [▶ 观看 78 秒中文演示](media/mips-cpu-demo.mp4) ·
-[下载演示与 bitstream](https://github.com/wohuishuo/mips-cpu-lab/releases/tag/v0.1.0) ·
+[下载演示与 bitstream](https://github.com/wohuishuo/mips-cpu-lab/releases/tag/v0.1.1) ·
 [实验报告](docs/report.md) / [PDF](docs/report.pdf) · [课程讲解](docs/teaching.md) ·
 [12 项能力与证据](docs/capabilities.md) · [完整复现](docs/reproduce.md)
 
@@ -25,6 +25,7 @@
 | CPU + Cache | 2 种配置 × 3 种等待模式；每组 391 次退休、198 次 CPU 事务、8,192 个后备存储字一致 |
 | 课程 lab1 / lab3 | 两版显示各 672 项检查；原 Fibonacci 的 20 个 RAM 值；原加法程序及 36 组边界输入 |
 | 原 teach_soc + 流水线 | 28,970 行 golden trace 一致，420 次实际存储；本地镜像启用 19 个功能点 |
+| GNU 源码重建 | 实际预处理、汇编、链接和 COE 转换；46,951 个 ROM 字与原件完全一致，新镜像重跑原 golden 通过 |
 | 实板 | 10 MHz 单周期 SoC；12 次 RAM 存储、89、错误计数 0；UART 控灯和 CPU 重启通过 |
 | FPGA 实现 | 2,858 LUT、1,865 FF；setup 余量 8.582 ns，hold 余量 0.011 ns；DRC 0 |
 

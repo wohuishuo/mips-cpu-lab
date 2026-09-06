@@ -118,8 +118,10 @@ in the startup source. Passing this supplied image does not establish all 89
 points, HI/LO/multiply/divide, unaligned merge loads, CP0 exception suites, MMU/TLB,
 cache integration, or complete MIPS32 compatibility. The separately documented
 owned pipeline suite establishes its own directed/random and exception coverage.
-This runner uses the supplied prebuilt image; it does not claim to rebuild it
-with a MIPS GNU toolchain or prove correspondence to a fresh source build.
+This runner by itself replays the supplied image. A separate subsequent
+[GNU rebuild workflow](gnu-rebuild.md) actually rebuilt the source, reproduced
+all46,951 ROM words and invoked this same runner on the new image with the
+unchanged golden. Its evidence is recorded separately from the original replay.
 
 SHA-256 hashes of the exact local supplied inputs:
 

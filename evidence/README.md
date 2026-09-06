@@ -13,6 +13,10 @@ logs can be regenerated with `scripts/run_all.py --with-course`.
 
 `course_basics.json` records the six lab1/lab3 profiles and hashes of external
 course files. `pipeline-stages.csv` contains real XSim stage snapshots.
+`gnu-rebuild.json` adds the later actual source-to-ELF-to-COE build and unchanged
+golden verification. `gnu-default-layout.json` preserves the different default
+archive-order comparison. `capabilities.json` maps the twelve capability rows
+to tested evidence and their limits.
 `board.json`, `recording.json`, and `live-telemetry.jsonl` come from the physically
 connected programmed FPGA, not a simulated UART.
 

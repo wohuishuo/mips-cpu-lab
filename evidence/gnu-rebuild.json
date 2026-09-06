@@ -1,0 +1,277 @@
+{
+  "status": "PASS GNU_REBUILD",
+  "enabled_points": 19,
+  "enabled_calls": [
+    "n1_lui_test",
+    "n4_beq_test",
+    "n5_bne_test",
+    "n6_lw_test",
+    "n7_or_test",
+    "n8_slt_test",
+    "n11_sll_test",
+    "n12_sw_test",
+    "n13_j_test",
+    "n14_jal_test",
+    "n15_jr_test",
+    "n21_add_test",
+    "n22_addi_test",
+    "n23_sub_test",
+    "n25_sltu_test",
+    "n29_ori_test",
+    "n30_xor_test",
+    "n31_xori_test",
+    "n35_srl_test"
+  ],
+  "ubuntu_base_url": "https://cdimage.ubuntu.com/ubuntu-base/releases/24.04.4/release/ubuntu-base-24.04.4-base-amd64.tar.gz",
+  "ubuntu_base_sha256": "c1e67ef7b17a6300e136118bd1dc04725009cb376c1aad10abcf8cd453628d58",
+  "original_sources_unchanged": true,
+  "source_files": 103,
+  "source_hashes": {
+    "bin.lds": "c4c21e201b4d0e22a7487687b0f6368d31c8343afac23ec8410fee3e4be676d9",
+    "bin.lds.S": "dfdbf48086b808c10e35111d82cbc1984cef67b2a6ab80b2315c3a0bad2a4312",
+    "convert": "2321d82f886f0f7dd162523ef514d6523665a4bb7e5c128eef88c558faa168c6",
+    "convert.c": "973eca17738c7ba5eeb16bc38ed7087e77814fc88884a4c0c327c7070e06b48d",
+    "include/asm.h": "e1e58a002a66b0a99f2eea6e03255ae73a584621da342cbb447b75cb5f979284",
+    "include/cpu_cde.h": "4af24745d2e31530d1ff826e4478352dcd9bccdb5cb2cc1045d5950036d560d8",
+    "include/regdef.h": "d51baf41213469bcc5a7c33f0fd7a01f812d98894ade48560148c394b0a4f6db",
+    "inst/1": "dee14cd68227dea30d8f757f1a7c528838a0891c848a462289736048293e06d7",
+    "inst/inst_test.h": "95448baa73fb5474d982bec1593bf37573501019ad89d1010a5f55795ca8d31b",
+    "inst/Makefile": "70b07856bd4d92e65bb6eca8aac287fb1b1e2fc76218a8d756f3b0e630811c8b",
+    "inst/n10_sltiu.S": "46ac8609d470271fad952c9a63c2bf45ec14fee45068bd42650f88d14c27fd6f",
+    "inst/n11_sll.S": "ffcb00e04f15fc875e724fb82e54ef50b586a71320bc5a89a1dc48fb300e2afe",
+    "inst/n12_sw.S": "0a9fdee043ea9b03ddbd6d5092229024abeb230ccff8c3f9562dfb2c78a6862d",
+    "inst/n13_j.S": "0825878f6f30f1dab04941fee2a9a7a981cceb4de02dc56eb4f357cc818f117a",
+    "inst/n14_jal.S": "0087e13444a9f093012191b0112e2f6b38ef39ea291767dd40ae43b19fd5869e",
+    "inst/n15_jr.S": "971adb93f4f6c5e5a10d899e6a2d669162146ec08cc641d620507332e8b2e37b",
+    "inst/n16_beq_ds.S": "8815ce5129baf9483a8cb71fd9c439edda7dbf81a974addef33e8dc76b44c9a2",
+    "inst/n17_bne_ds.S": "334cb0a4db3784bb6104b6b5061358103efb4edb1328c85ffed260b076dbc4f4",
+    "inst/n18_j_ds.S": "a0fa4bf089b4062cb07744faf5a5abf992edb63c08b183882ef696988b81113d",
+    "inst/n19_jal_ds.S": "65365531f63eeedbaab866d0e8f56b6d8c5fbd28e49c7cac03475c238a0aea6d",
+    "inst/n1_lui.S": "6bdf53343eead8466e0d16b0183bc24454ee04c07c1d3f348188887bc18e11a7",
+    "inst/n20_jr_ds.S": "7bca0f90cbc3f5a00d5b8ece8c7a031ad7251193868c63e3da8b3a8658d67e7d",
+    "inst/n21_add.S": "892e9cfe5e5a9f2b4f7f913bd234b59c1e7ef066bf1d48ed6097caee3634c527",
+    "inst/n22_addi.S": "3ecc9623c0e62c41390273e88e2049c9fdcbb5a0f8a92a415b4c9a5ee4894129",
+    "inst/n23_sub.S": "949765a685ae988dc43878963cb10caf254d695a7dd4ab234e9906059011fbed",
+    "inst/n24_subu.S": "f4b69d7322043f1a09cdae44d5845b3cdea75b685f65893bca65e6287e520c2a",
+    "inst/n25_sltu.S": "84610d5ad90ec40d6f182e847f82c015449923b5990c92a6a98c735cef865372",
+    "inst/n26_and.S": "7bbf99e733df0e3e4e43de8a77280dcdf374a84845d51e984fedd08d9f5dce4b",
+    "inst/n27_andi.S": "1c2e4d903715870fb8cc56845aea712ee347b3374c424d2a2ceb8ce760a9daeb",
+    "inst/n28_nor.S": "34282d33fd3e6913fafe8f5ec588e7e7710878af4d912be8effcd0f3949f132c",
+    "inst/n29_ori.S": "0cdb0a7654301a7c9e4b578101103169f1e9fabefaa0121bce221dbd3d325b84",
+    "inst/n2_addu.S": "4d5d20d22dbcf2303be3e4ea9b94f38aa08ace6b28793718c7bac794a1200568",
+    "inst/n30_xor.S": "1e25b0694d38e43c8f822884d3b5abfab60ed28be1af222777b81169dfae4510",
+    "inst/n31_xori.S": "60243f58cadfaa4fd01a47e32eaf22d9c14c9004d5acc7300a8bfee1b7ac8c15",
+    "inst/n32_sllv.S": "c9e82319f843692aab44ef98b79a4da1b8ed02a7805d596c20c7c42843bfc519",
+    "inst/n33_sra.S": "1ab5d87c9cb85257224e3c2143b3c4a1a45fcf9add229bf262cc4a58cece298f",
+    "inst/n34_srav.S": "d0348139d0f9ee3798e1c6eee8324d6a724fb6a4dffe91e4c1cec2ab0eb6a064",
+    "inst/n35_srl.S": "a7952a2c37b13bc677f76dedd16258f741ce9fc68569b990167ea7065b4248a4",
+    "inst/n36_srlv.S": "abbefeb9c94fa5918d6fc3c1323298f3e9e1d51a13a95ef4575ed588de12349d",
+    "inst/n37_bgez.S": "fca54d7d77b452579b0fcda5cd77f9e8da819d2ebb2ab40a2f22cb72a3766215",
+    "inst/n38_bgtz.S": "5b7fb5b5bb197c8ecf73fdc3a0d68dac4af2e1187f851f668f984c1a2146d9e1",
+    "inst/n39_blez.S": "b2dfbab70e830b936cdf01efb1e1366323247ba988d342e35ac7af0b0ac769c4",
+    "inst/n3_addiu.S": "1abf96de59cac4ee2f1407a050c3665be9e379e3c4b082f8c29959f0f8dc1648",
+    "inst/n40_bltz.S": "2f5f36b1883134f8a478022fe0ecee8bfaebcba8c9b93ef05b6920c95099311c",
+    "inst/n41_bltzal.S": "0a3108cbf79930e2b1b82f5e19f02eaaee9195aad76e42cb1ae6076b31242bc8",
+    "inst/n42_bgezal.S": "1739a22600cce6b97820def583686aad317e9422cbbe605e412253812d557834",
+    "inst/n43_jalr.S": "5c8c4d5729b57878db7c6f1415f17249fdba1ac274492007bad7e0b59c78f1ab",
+    "inst/n44_div.S": "263ec4df4705a999e2e0d903762153108dde2169c0b09ad3febeddbe34d5ead2",
+    "inst/n45_divu.S": "35e8146114b8796928317b344d0562e6e298a1236187c428544bc3ab6a2b1234",
+    "inst/n46_mult.S": "4c3913c267adee7c7a0f60fc860766ed3606871c53deab0b6dd4ef1a94b8b9a6",
+    "inst/n47_multu.S": "27cf5d40db769528ffe1f6e588bd945f5574fe34fc3688754aa38eae40104e80",
+    "inst/n48_mfhi.S": "720b450b3583ab42b748484327977e85de56c6f4f0a2672bf0b0e01a4a7a6560",
+    "inst/n49_mflo.S": "c24090da41dc7dd983fd831a80c06857bebfcf2a26ad502769f54f453f83e371",
+    "inst/n4_beq.S": "cb55901bcf554d955e505396e6456ee4faf88a7a2320d81484f2385897b9e3c2",
+    "inst/n50_mthi.S": "05f63b54964839769d8ccdadc0ee351bbc28c706f61ff5412c28b6b7049e8058",
+    "inst/n51_mtlo.S": "3530ce0782e69a35024b414a5c298f06f9e6406f903763e53d671850cc2ff2e2",
+    "inst/n52_bgez_ds.S": "0c3c1a7214ef69212bf0ce1cb4333481818f1f9b93a9ef9ee79919d2c2103b3a",
+    "inst/n53_bgtz_ds.S": "a433f7c4b90d4a6643d85d62638030932638834d6c42033ba5b3916043356ccd",
+    "inst/n54_blez_ds.S": "392553ca0a8fe1fc4e93c44d48be595b010d729a59c779d59058acf23ec8132a",
+    "inst/n55_bltz_ds.S": "6674b6aa650c577527ee817543081df79fb4c618d2d90ea02743e71a72b759b8",
+    "inst/n56_bltzal_ds.S": "c7e99275af59f21a8f31fc1e9dff8cc91a9357be7b92d3eb76cde8090ed296fc",
+    "inst/n57_bgezal_ds.S": "39e4d669a85e060853018d9a8199ed3de03453c0389d8fa51ebabdfadf2294ba",
+    "inst/n58_jalr_ds.S": "735d52f76b7bb294a3655cf5c9a45ef404c886cfb58ff4bfe87a499bd6be9317",
+    "inst/n59_lb.S": "e82569119cedadecea7a3e9828ad5771ac28ec92fa87e45b79bfbc15a923fd17",
+    "inst/n5_bne.S": "91ff2e88c585a5f9993275d7f8eb510fe22c7740f6d27b2c0aaee8b0062c9d80",
+    "inst/n60_lbu.S": "2a0f5e51540fe81b037b787a3135be240d3815a6f67b764652f3dd94feef2c18",
+    "inst/n61_lh.S": "293cbf00d1f108054ec71dc1fdccf2cf17d741bcc293d748cd825a5dc20daea5",
+    "inst/n62_lhu.S": "877e45cd6c91470ca77824d9c8ca784fbcc971188db1c7af1e7b7794433b57b4",
+    "inst/n63_sb.S": "260dbbb5cd34de9444b31bb28642049a8381734616edb88d4b912facc0181229",
+    "inst/n64_sh.S": "1df6333cf17dccfa3ff44899a8633a3088266ceff9590f2d26115904b7f8777a",
+    "inst/n65_syscall_ex.S": "0bb4deb7dee7167601778047d2dc7c4421942c9068876757686c19363d983a25",
+    "inst/n66_break_ex.S": "492638188e9e51764cbefc207134d4a1fd844211423ba877fe446390ae85067c",
+    "inst/n67_add_ov_ex.S": "87111170d28783187d9378a740cff02ea9edd6b63563fa1016679f2bd970ebd8",
+    "inst/n68_addi_ov_ex.S": "475e7156c6a1d2f2ddb7cb2e4aa4076ea9c0b0ff89c4721655c3aaf8789fc8f1",
+    "inst/n69_sub_ov_ex.S": "59fa0df8edd87d8b1423c7aad7e71162d4db6e9766b554cc12e9a475238e8e75",
+    "inst/n6_lw.S": "a66e6d63df9e8312979fb23d80c2c34267b8aee52798958c03dee49c303b78fc",
+    "inst/n70_lw_adel_ex.S": "2acbee529d58dff281b9698b581976c785ac911e2d7b5eddff474e1d88118a07",
+    "inst/n71_lh_adel_ex.S": "406773228616a3060603d390c08e728b2426725534874c37ba6be0253caea822",
+    "inst/n72_lhu_adel_ex.S": "cabf79a7a6c33ea1f97af8b905fb56fa2cb0d85db55f31f82fe5bd6023301a5e",
+    "inst/n73_sw_ades_ex.S": "1cb90693b15bfc3c43f60a04939e28f0137a7088dd1905872bf4557d5511e071",
+    "inst/n74_sh_ades_ex.S": "535cc707fdde8a414c4b5d914145bd9cd6264ba16eb1da4e746dd3c68b35d291",
+    "inst/n75_ft_adel_ex.S": "a2acda94d266a7c2e44568d54d9ae2ecd5381730cee606d2b8f2bcf6ecc6b83f",
+    "inst/n76_ri_ex.S": "2ee64a017d004f5a33ded6e73fdf9271c086cd12b788b341adbdff2c737400d6",
+    "inst/n77_soft_int_ex.S": "20b7a5e7d4c6492839d0b6f6498241eb6785ce1b6804f60fd47abc0c512b6d01",
+    "inst/n78_beq_ds_ex.S": "8ecc46b70756a1ee7f316764f705e246f494ae884fbbabe9b9e3afd7a2f9763c",
+    "inst/n79_bne_ds_ex.S": "0a62e31262a84eff40a9bdc9bf136863cfba91fabbdad54d213e3f92f020adfe",
+    "inst/n7_or.S": "e8b5df06b14a45dc67836c3b4942d5e591321b7912ade5de9e96ae5e6e529667",
+    "inst/n80_bgez_ds_ex.S": "fdfddb0173dea981e5ab5ccf19006c3e5fc5b8764b34b43b9f501f08d83cac00",
+    "inst/n81_bgtz_ds_ex.S": "12c453e44e7be7c8424980aa4651f39db5afc80bc93a6bfae867d2296a6e7623",
+    "inst/n82_blez_ds_ex.S": "98d4c8fb1669ccfda305174a12ddc70d5c4c06f41cbcfc27518355b5503f8611",
+    "inst/n83_bltz_ds_ex.S": "f20ec879cd4f11708566f2383decc11c7d99bacac74b1c0a010c635f8aa066f3",
+    "inst/n84_bltzal_ds_ex.S": "e3d39c2f5eb343e6592a08cf90d0879937e886e1393d6c33c6a87483b70a9862",
+    "inst/n85_bgezal_ds_ex.S": "483f57cd0877617546f0101a420c7d20f946d9e836390da7b766ae68ef60df53",
+    "inst/n86_j_ds_ex.S": "1edc8fc8081cfd6efa19baf40df1b1690ebac0bd2eb069c1d344da93dd17b5da",
+    "inst/n87_jal_ds_ex.S": "b89fc27702dff6d635f5cb7afb4fa043eda8f156cd2df3f3c1efdcfb1c0f6db1",
+    "inst/n88_jr_ds_ex.S": "7dd0715032e536fe0ec9678dc983672c5872636b0898d924c8fecf452c066312",
+    "inst/n89_jalr_ds_ex.S": "7f44e6da1fc4db2996ee21a78041663d9dc6ff5002d9514ed6e3571a3a22f450",
+    "inst/n8_slt.S": "4e5b9448b10a33152aa1525d14157bd91a9958bdf656cd2347bc5913e18c0977",
+    "inst/n9_slti.S": "c17a9a112dac275779873b907614754f028832140dcf3712c669a24694ed60c8",
+    "Makefile": "f697c631bf2c1f3a6feba15c168bcc22c303f460fdcd4093b3cb5c025fd8dc9c",
+    "Readme_first.txt": "2727ec04aad375906078b307d4fec85276cd1f3620dc6a1a3d95e22e0cec2c95",
+    "rules.make": "a8c97974d2e3b19ef8ab70274e1d64a937083ed2f9702ce1bdf75cb4c4294513",
+    "start.S": "7330b701bea26a9cadb7ad537219a99173e88f069b0d58a2f7a61b15885aa3a9"
+  },
+  "build_source_directory": "build/gnu-rebuild/source-06cwo5d7",
+  "supplied_layout_order": [
+    {
+      "function": "n1_lui_test",
+      "address": "bfc00320"
+    },
+    {
+      "function": "n35_srl_test",
+      "address": "bfc01280"
+    },
+    {
+      "function": "n25_sltu_test",
+      "address": "bfc03050"
+    },
+    {
+      "function": "n22_addi_test",
+      "address": "bfc05480"
+    },
+    {
+      "function": "n31_xori_test",
+      "address": "bfc07400"
+    },
+    {
+      "function": "n5_bne_test",
+      "address": "bfc09380"
+    },
+    {
+      "function": "n29_ori_test",
+      "address": "bfc0d940"
+    },
+    {
+      "function": "n4_beq_test",
+      "address": "bfc0f8c0"
+    },
+    {
+      "function": "n13_j_test",
+      "address": "bfc12790"
+    },
+    {
+      "function": "n30_xor_test",
+      "address": "bfc158e0"
+    },
+    {
+      "function": "n6_lw_test",
+      "address": "bfc181c0"
+    },
+    {
+      "function": "n14_jal_test",
+      "address": "bfc195c0"
+    },
+    {
+      "function": "n7_or_test",
+      "address": "bfc1d6c0"
+    },
+    {
+      "function": "n8_slt_test",
+      "address": "bfc1ffa0"
+    },
+    {
+      "function": "n11_sll_test",
+      "address": "bfc223d0"
+    },
+    {
+      "function": "n12_sw_test",
+      "address": "bfc24190"
+    },
+    {
+      "function": "n21_add_test",
+      "address": "bfc25810"
+    },
+    {
+      "function": "n15_jr_test",
+      "address": "bfc279c0"
+    },
+    {
+      "function": "n23_sub_test",
+      "address": "bfc2bc80"
+    }
+  ],
+  "compatibility_adjustments": [
+    "CROSS_COMPILE=mipsel-linux-gnu-",
+    "CFLAGS += -mfp32 in copied Makefile only",
+    "Discard .MIPS.abiflags in copied linker script only"
+  ],
+  "outputs_sha256": {
+    "axi_ram.mif": "24f1a177fafeff9f6b41288a4f3ef43e713f973cf52513c9912d00454b8cb2d3",
+    "data_ram.coe": "5fafeed8745456b72db7022bb9486433d32ff08f067e299f30b68ac272c957f4",
+    "data_ram.mif": "e10bb09ae00c50ff2bad723ae9cb7cc6b585b61f6ba402ff9888db4182418161",
+    "inst_ram.coe": "c9dcea20a6dd95fdd0c3d7f28ed6bebbcfcc86db9ab8d70ed46257a136c934b9",
+    "inst_ram.mif": "24f1a177fafeff9f6b41288a4f3ef43e713f973cf52513c9912d00454b8cb2d3",
+    "main.bin": "ebad62f3c4203395ad4c02aeb751e27bbfba19d08638905ae669e85cd08dc35a",
+    "main.data": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+    "main.elf": "e9c00d375fd5e5b59f4c6c28432d12f35fcf814d855e8d201e2f4a0c35e32ca9",
+    "test.s": "32141cd7cd49cde64e07717852de3e0038681fa8b5cce52ad0e4683d7a9d7216"
+  },
+  "supplied_rom_sha256": "c9dcea20a6dd95fdd0c3d7f28ed6bebbcfcc86db9ab8d70ed46257a136c934b9",
+  "rom_comparison": {
+    "supplied_words": 46951,
+    "rebuilt_words": 46951,
+    "identical_words": true,
+    "differing_common_words": 0,
+    "first_differences": []
+  },
+  "tool_versions": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nmipsel-linux-gnu-gcc (Ubuntu 12.4.0-2ubuntu1~24.04) 12.4.0\nCopyright (C) 2022 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nGNU ld (GNU Binutils for Ubuntu) 2.42\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) a later version.\nThis program has absolutely no warranty.\n",
+  "scope": "Actual GNU preprocessing, assembly, linking and host converter build. Compilation does not by itself establish CPU functional correctness.",
+  "simulation": {
+    "result": "PASS TEACH_SOC rows=28970 cycles=49959 stores=420 display=13000013 led=0f enabled_points=19 reset_cancel=1 checked_tail=32",
+    "mutation": null,
+    "rom_words": 46951,
+    "enabled_startup_calls": [
+      "n1_lui_test",
+      "n4_beq_test",
+      "n5_bne_test",
+      "n6_lw_test",
+      "n7_or_test",
+      "n8_slt_test",
+      "n11_sll_test",
+      "n12_sw_test",
+      "n13_j_test",
+      "n14_jal_test",
+      "n15_jr_test",
+      "n21_add_test",
+      "n22_addi_test",
+      "n23_sub_test",
+      "n25_sltu_test",
+      "n29_ori_test",
+      "n30_xor_test",
+      "n31_xori_test",
+      "n35_srl_test"
+    ],
+    "sources_sha256": {
+      "rom": "c9dcea20a6dd95fdd0c3d7f28ed6bebbcfcc86db9ab8d70ed46257a136c934b9",
+      "golden": "1047fc04c8408cd2eafc649f9f7f6898f47afba34743a1db7009d09e5039d6ab",
+      "top": "c01b21be99e45811d040f0e70b80561bbe4cb42bdbbaaf6097055ea8d40dff0f",
+      "bridge": "0ae93918e27ae69ee07621929154064babe6992a8423b765e913176233da69fb",
+      "confreg": "ed69b7540571b58ff097b55e79a21f24bda8cb294e97ac8e6a552bd10b3aff79",
+      "startup": "7330b701bea26a9cadb7ad537219a99173e88f069b0d58a2f7a61b15885aa3a9"
+    },
+    "scope": "Unmodified supplied teach_soc_top/bridge/confreg; pipeline falling-edge simulation adapter; synchronous behavioral SRAMs; 19 enabled supplied points. No all-89, vendor-IP timing, synthesis, FPGA or board claim."
+  },
+  "golden_sha256_unchanged": "1047fc04c8408cd2eafc649f9f7f6898f47afba34743a1db7009d09e5039d6ab",
+  "runner_sha256": "765312e76ff8f0980f5eecbb062bde08990083e22f198193d1fde4cbc9e28333",
+  "rtl_and_test_source_manifest": "tested-source.json"
+}

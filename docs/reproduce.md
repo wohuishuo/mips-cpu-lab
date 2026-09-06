@@ -68,6 +68,13 @@ used by `course_basics`. The runners validate the files they consume and keep th
 original inputs unchanged. If a root or required file is absent, the associated
 row is `SKIP`; the runner does not try to fetch it.
 
+## Optional GNU source rebuild
+
+For actual GNU source compilation of the supplied nineteen-point lab5 program,
+see [GNU rebuild](gnu-rebuild.md). It is an explicit additional workflow using
+a private Ubuntu image under a working WSL distribution; it is not an implicit
+download or environment change performed by the ordinary eleven-runner suite.
+
 ## Physical board work
 
 The default and `--with-course` suites do not synthesize, program, open a serial
