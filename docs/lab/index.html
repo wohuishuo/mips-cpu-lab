@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f5f1"><title>一台 CPU 是怎样工作的 · MIPS 实验记录</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23a73f2a'/%3E%3Ctext x='7' y='23' fill='white' font-size='21'%3Em%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="./exhibit.css"></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f5f1"><title>一台 CPU 是怎样工作的 · MIPS 实验记录</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23a73f2a'/%3E%3Ctext x='7' y='23' fill='white' font-size='21'%3Em%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="./exhibit.css"><link rel="stylesheet" href="./spectrum.css"></head>
 <body>
   <aside class="catalog"><a href="#board" class="wordmark"><span>μ</span><div>MIPS 实验记录<small>一台 CPU，从代码到板子</small></div></a><div class="catalog-label">从这里开始</div><nav id="chapters" aria-label="实验目录"></nav><div class="catalog-bottom"><a href="./playground.html">自己写程序 / 拼电路 <span>↗</span></a><a href="https://github.com/wohuishuo/mips-cpu-lab" target="_blank" rel="noopener">项目完整源码 <span>↗</span></a><p>EES-338 · XC7A35T<br>Verilog / MIPS / Vivado 2019.2</p></div></aside>
   <main class="notebook">
-    <header class="page-top"><span>北理工 · 计算机组成原理实践</span><div><button id="tour">跟着演示走</button><span class="page-no" id="page-number">01 / 08</span></div></header>
+    <header class="page-top"><span>北理工 · 计算机组成原理实践</span><div><div class="locale-controls"><button id="language-toggle" type="button">English</button><button id="motion-toggle" type="button" aria-pressed="true">动效开启</button></div><button id="tour">跟着演示走</button><span class="page-no" id="page-number">01 / 08</span></div></header>
     <section class="chapter-heading"><div class="chapter-kicker" id="chapter-kicker">项目总览</div><h1 id="chapter-title">这块板子，怎样算出 89？</h1><p id="chapter-intro">正在读取项目源码与实测记录…</p></section>
     <div id="load-error" role="alert" hidden></div>
     <section class="question-strip"><span>这一节看懂</span><strong id="chapter-question"></strong><button id="next-chapter">下一节 →</button></section>
@@ -16,4 +16,4 @@
     <footer><a href="./playground.html">继续探索：写程序 / 拼电路 →</a><a href="../visual-lab.md">运行与复现说明 ↗</a></footer>
   </main>
   <script type="module" src="./exhibit.js"></script>
-</body></html>
+<script type="module" src="./locale.js"></script></body></html>

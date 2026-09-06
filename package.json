@@ -8,6 +8,7 @@
     "lab": "node tools/serve-lab.mjs",
     "test:exhibit": "node --test tests/exhibit/*.test.js",
     "test:exhibit:browser": "node tests/exhibit/browser.mjs",
-    "build:exhibit": "node tools/build-exhibit-data.mjs"
+    "build:exhibit": "node tools/build-exhibit-data.mjs",
+    "test:locale": "node tests/exhibit/locale-browser.mjs"
   }
 }

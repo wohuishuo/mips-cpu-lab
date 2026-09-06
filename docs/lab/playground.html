@@ -7,8 +7,8 @@
   <title>CPU 工坊 · 从一位到一台 CPU</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='6' y='6' width='28' height='28' rx='7' fill='%235de0bc'/%3E%3Cpath d='M14 15h12v10H14z' fill='%230b101a'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./circuit-editor.css"><link rel="stylesheet" href="./playground-theme.css">
-</head>
-<body>
+<link rel="stylesheet" href="./spectrum.css"></head>
+<body class="playground">
   <header class="topbar">
     <a class="brand" href="./" aria-label="CPU 工坊首页"><span class="brand-chip"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="16" height="16" rx="3"/><rect x="12" y="12" width="8" height="8" rx="1"/><path d="M12 3v5M20 3v5M12 24v5M20 24v5M3 12h5M3 20h5M24 12h5M24 20h5"/></svg></span><span>CPU 工坊 <small>BIT / MIPS LAB</small></span></a>
     <nav class="tabs" aria-label="实验模式">
@@ -16,7 +16,7 @@
       <button class="tab" data-tab="circuit" aria-selected="false"><span>02</span> 电路工坊</button>
       <button class="tab" data-tab="guide" aria-selected="false"><span>03</span> 实验指南</button>
     </nav>
-    <a class="source-link" href="./">← 返回项目讲解</a>
+    <div class="locale-controls"><button id="language-toggle" type="button">English</button><button id="motion-toggle" type="button" aria-pressed="true">动效开启</button></div><a class="source-link" href="./">← 返回项目讲解</a>
   </header>
   <main>
     <section class="hero">
@@ -73,5 +73,5 @@
     <footer><span><span class="footer-chip">▣</span> MIPS CPU LAB <span class="footer-divider">/</span> 从指令到电路</span><span>浏览器软件模型 · 可暂停、可回退、可拆解</span></footer>
   </main>
   <script type="module" src="./app.js"></script>
-</body>
+<script type="module" src="./locale.js"></script></body>
 </html>

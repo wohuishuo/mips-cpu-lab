@@ -1,5 +1,7 @@
 # MIPS CPU Lab · 从指令到电路
 
+**[在线演示 · 中文](https://wohuishuo.github.io/mips-cpu-lab/lab/?lang=zh) · [Interactive website · English](https://wohuishuo.github.io/mips-cpu-lab/lab/?lang=en)**
+
 ![从指令到电路](media/cover.png)
 
 围绕北理工课程资料，从 MIPS 汇编、单周期 CPU，走到五级流水线、精确异常、
