@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b101a">
+  <meta name="description" content="交互式 MIPS CPU 实验台：真实周期流水线、寄存器与内存、逐位加法器和可拼接定制电路。">
+  <title>CPU 工坊 · 从一位到一台 CPU</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='6' y='6' width='28' height='28' rx='7' fill='%235de0bc'/%3E%3Cpath d='M14 15h12v10H14z' fill='%230b101a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./circuit-editor.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="CPU 工坊首页"><span class="brand-chip"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="16" height="16" rx="3"/><rect x="12" y="12" width="8" height="8" rx="1"/><path d="M12 3v5M20 3v5M12 24v5M20 24v5M3 12h5M3 20h5M24 12h5M24 20h5"/></svg></span><span>CPU 工坊 <small>BIT / MIPS LAB</small></span></a>
+    <nav class="tabs" aria-label="实验模式">
+      <button class="tab active" data-tab="cpu" aria-selected="true"> <span>01</span> CPU 运行</button>
+      <button class="tab" data-tab="circuit" aria-selected="false"><span>02</span> 电路工坊</button>
+      <button class="tab" data-tab="guide" aria-selected="false"><span>03</span> 实验指南</button>
+    </nav>
+    <a class="source-link" href="https://github.com/wohuishuo/mips-cpu-lab" target="_blank" rel="noopener">源码 ↗</a>
+  </header>
+  <main>
+    <section class="hero">
+      <div><div class="eyebrow"><i></i> INTERACTIVE DIGITAL LOGIC LAB</div><h1>从一位，走进一台 CPU<span>。</span></h1><p>给它输入，看信号穿过逻辑门，跟随每条指令抵达结果。</p></div>
+      <div class="hero-meta"><span class="model-badge">32 BIT <b>定制 MIPS</b></span><span class="local-badge">● 本地计算 · 无需 FPGA</span></div>
+    </section>
+    <section id="cpu-view" class="view">
+      <div class="controlbar">
+        <div class="transport"><button id="run" class="primary" title="空格：运行 / 暂停">▶ 运行</button><button id="step" title="N：前进一个时钟">时钟单步 →</button><button id="back" title="B：回退一个时钟">← 回退</button><button id="reset" class="icon-button" title="复位 CPU，保留程序与定制电路" aria-label="复位 CPU">↺</button></div>
+        <label class="speed">速度 <input id="speed" type="range" min="1" max="10" value="3"><output id="speed-label">3 Hz</output></label>
+        <div class="metrics"><span>时钟 <b id="cycle">000</b></span><span>已完成 <b id="retired">0</b></span><span class="status" id="status">就绪</span></div>
+      </div>
+      <div id="notice" class="notice" role="status" aria-live="polite">已加载定制单元示例。按「运行」或「时钟单步」开始。</div>
+      <div class="workspace">
+        <aside class="panel program-panel">
+          <div class="panel-head"><h2><span class="section-num">01</span> 输入与程序</h2><span class="small-tag">ASM</span></div>
+          <label class="field-label" for="example">实验程序</label><select id="example"><option value="custom">定制单元 · 从输入到 RAM</option><option value="fibonacci">斐波那契 · 分支与循环</option><option value="hazards">数据冒险 · 等待与转发</option><option value="bytes">字节存储 · 小端布局</option></select>
+          <div class="input-pair"><label>A <span>$a0</span><input id="input-a" value="7" inputmode="text" aria-label="输入 A"></label><label>B <span>$a1</span><input id="input-b" value="5" inputmode="text" aria-label="输入 B"></label></div>
+          <div class="editor-label"><label for="program">程序 <span>可编辑</span></label><span id="program-length">7 条指令</span></div>
+          <textarea id="program" spellcheck="false" aria-label="MIPS 汇编程序" wrap="off"></textarea>
+          <button id="load" class="wide">↳ 加载程序与输入</button>
+          <label class="wait-select">存储等待 <select id="wait"><option value="0">0 个时钟</option><option value="1">1 个时钟</option><option value="3">3 个时钟</option></select></label>
+          <div class="program-foot"><span class="dot mint"></span> $zero 恒为 0 · 一个分支延迟槽<br><span class="foot-indent">CUSTOM 由你的电路计算</span></div>
+        </aside>
+        <section class="panel board-panel">
+          <div class="panel-head"><h2><span class="section-num">02</span> 五级流水线</h2><span class="board-legend"><i class="dot mint"></i> 有效指令 <i class="dot amber"></i> 定制 / 转发</span></div>
+          <div class="board-caption"><span><i class="live-dot"></i> MIPS / <b id="unit-name">ADD32 定制单元</b></span><span>点击模块 · 窄屏可横向滚动</span></div>
+          <div id="pipeline-board" class="pipeline-board" role="group" aria-label="CPU 五级流水线电路图"></div>
+          <div class="stage-detail"><span id="selected-stage-name">EX · 执行单元</span><p id="selected-stage-detail">等待指令进入。ALU 与定制单元接收寄存器值，运算后把结果交给下一阶段。</p></div>
+          <div class="flow-key"><span>── 32 位数据总线</span><span class="amber-text">⇢ 转发 / 定制运算</span><span>CLK ↑ 上升沿推进状态</span></div>
+        </section>
+        <aside class="panel state-panel">
+          <div class="panel-head"><h2><span class="section-num">03</span> 状态观察</h2><button id="number-format" class="small-button" title="切换十进制与十六进制">HEX</button></div>
+          <div class="state-tabs"><button class="active" data-state="registers">寄存器 × 32</button><button data-state="memory">内存 RAM</button></div>
+          <div class="state-note" id="state-note">写回时更新 · 变化值高亮</div>
+          <div id="state-table" class="state-table"></div>
+          <div class="memory-controls" id="memory-controls" hidden><label>起始地址 <input id="memory-base" value="0" aria-label="内存起始地址"></label><button id="memory-show">查看</button></div>
+          <div class="state-foot"><span class="dot mint"></span> 本时钟发生写入</div>
+        </aside>
+      </div>
+      <section class="panel timeline-panel"><div class="panel-head"><h2><span class="section-num">04</span> 指令轨迹</h2><span id="event-caption">每一列都是一个真实时钟</span></div><div class="timeline-wrap" id="timeline"></div><div id="events" class="event-strip">还没有事件。加载程序后，从取指开始。</div></section>
+      <section class="panel gate-panel">
+        <div class="panel-head"><h2><span class="section-num">05</span> 展开到一位 · 全加器</h2><span class="small-tag">XOR + AND + OR</span></div>
+        <div class="gate-layout"><div class="gate-explanation"><div class="eyebrow">INSIDE THE CUSTOM UNIT</div><h3>32 位加法，<br>从这一个位开始。</h3><p>两次异或得到和，两个与门与一个或门传递进位。选择任意一位，查看它的真实输入与输出。</p><div class="bit-inputs"><label>A <input id="gate-a" value="7" aria-label="门级观察 A"></label><label>B <input id="gate-b" value="5" aria-label="门级观察 B"></label></div><label class="follow-label"><input type="checkbox" id="follow-cpu" checked> 跟随 CPU 最近一次 CUSTOM 输入</label><p id="gate-source" class="gate-source">当前展示 ADD32 内部结构。</p><button id="go-circuit">自己拼一个电路 ↗</button></div><div class="gate-visual"><div class="bit-heading"><span>BIT <b id="selected-bit">00</b></span><span id="sum-caption"></span></div><div id="bit-strip" class="bit-strip" aria-label="选择观察位"></div><div id="gate-diagram"></div><div class="gate-equation" id="gate-equation"></div></div></div>
+      </section>
+    </section>
+    <section id="circuit-view" class="view" hidden><div class="circuit-intro"><div><h2>把逻辑门，拼成你的运算单元。</h2><p>先尝试一位电路，再把 32 位 A / B / Y 电路接回 CPU。输出会真的改变 CUSTOM 指令的结果。</p></div><span class="small-tag">BUILD → SIMULATE → INSTALL</span></div><div id="circuit-root"></div></section>
+    <section id="guide-view" class="view" hidden>
+      <div class="guide-grid"><article class="panel"><span class="section-num">START HERE</span><h2>五分钟，走完一条指令</h2><ol><li>在 CPU 运行页输入 A = 7、B = 5，加载程序。</li><li>连续时钟单步：观察取指、译码、执行、访存、写回。</li><li>CUSTOM 经过 EX 时计算 12；SW 把 12 写入 RAM 地址 0。</li><li>LW 后的相关运算触发 load-use 停顿；结果 17 写入地址 4。</li><li>去电路工坊切换一个 32 位电路，装入 CPU，重新运行比较结果。</li></ol><p>快捷键：空格运行 / 暂停，N 单步，B 回退。编辑输入时不会触发快捷键。</p></article>
+      <article class="panel"><span class="section-num">MODEL BOUNDARY</span><h2>这里的动画由什么驱动？</h2><p>由浏览器内的五级 MIPS 软件模型逐时钟计算。数据通路、寄存器、字节 RAM、转发、存储等待和一个分支延迟槽参与真实状态更新。</p><p><strong>CUSTOM 是可替换的浏览器教学扩展。</strong>它没有改写仓库 FPGA 指令集。本页不模拟 Cache、CP0、异常处理、门传播延迟或板级电气行为；ADD32 展开图仅说明加法结构，其他定制网络在电路工坊查看。</p><p>上层图中的线表示阶段活动和逻辑连接，不是晶体管电压。DFF 的状态只在电路工坊的时钟操作时锁存。</p><a href="../visual-lab.md">完整使用说明与模型范围 ↗</a></article>
+      <article class="panel"><span class="section-num">SOFTWARE</span><h2>需要什么软件？</h2><p>使用实验台只需现代浏览器。本地运行安装 Node.js 后，在仓库执行 <code>npm run lab</code>，打开终端显示的地址。</p><p>本页不需要 Vivado 或专用 MCP。修改和验证实际 Verilog / FPGA 工程时，继续使用项目的 Vivado / XSim 2019.2 工具链。</p><a href="../reproduce.md">原 FPGA 项目复现说明 ↗</a></article>
+      <article class="panel"><span class="section-num">CAPABILITIES</span><h2>可以一层层拆开的 CPU</h2><p>① 程序与数据输入 → ② 指令流水线 → ③ 寄存器和内存 → ④ 位与逻辑门 → ⑤ 拼接与安装定制单元。</p><p>全加器里的一位是观察起点；32 个全加器组成加法器，加法器作为运算单元接入处理器。你可以沿着这个层次来回查看。</p><p>已有 FPGA 结果和本页软件测试分别记录，避免把演示状态当作实板观测。</p></article></div>
+    </section>
+    <footer><span><span class="footer-chip">▣</span> MIPS CPU LAB <span class="footer-divider">/</span> 从指令到电路</span><span>浏览器软件模型 · 可暂停、可回退、可拆解</span></footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

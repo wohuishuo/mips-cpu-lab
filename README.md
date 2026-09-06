@@ -14,6 +14,10 @@
 [实验报告](docs/report.md) / [PDF](docs/report.pdf) · [课程讲解](docs/teaching.md) ·
 [12 项能力与证据](docs/capabilities.md) · [完整复现](docs/reproduce.md)
 
+**新增 [CPU 工坊](docs/visual-lab.md)**：输入程序，逐时钟观察五级流水线、寄存器与内存，
+展开到一位全加器，再像拼电路一样搭建定制运算单元。运行 `npm run lab` 打开浏览器实验台；
+仅需 Node.js 和浏览器。CUSTOM 是浏览器扩展，FPGA 验证结果仍按下表单独记录。
+
 ## 已验证的结果
 
 | 路径 | 实际结果 |

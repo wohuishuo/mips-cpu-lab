@@ -1,0 +1,1 @@
+{"name":"mips-cpu-visual-lab","private":true,"type":"module","scripts":{"test:visual":"node --test tests/visualizer/*.test.js","test:browser":"node tests/visualizer/browser.mjs && node tests/visualizer/circuit-browser.mjs","lab":"node tools/serve-lab.mjs"}}

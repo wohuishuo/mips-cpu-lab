@@ -32,3 +32,12 @@ python scripts/compose_demo.py
 先运行对应仿真生成日志。录屏包含真实控灯、蜂鸣器和 CPU 复位命令。
 裁图来自同一录屏，完整帧位于第 3 秒，显示区域为 `1060:336:58:442`，
 GPIO 区域取第 11 秒的 `716:336:1142:442`（FFmpeg crop 格式）。
+
+## 浏览器 CPU 工坊
+
+`visual-lab-cpu.png` 与 `visual-lab-circuit.png` 来自真实浏览器执行本仓库 `docs/lab/` 的截图。
+前者为默认程序第 7 拍，包含 load-use 停顿、已写入的 12 和逐位全加器；后者为可拼接电路页面。
+它们是浏览器软件模型，来源与上面的 FPGA UART 录屏分别记录。
+
+运行本地服务后执行 `npm run test:browser` 可重新生成 `build/visual-lab/` 中的截图；
+本次发布分别复制 `cpu-full.png` 与 `circuit-desktop.png`，没有拼接或改写画面中的结果值。
